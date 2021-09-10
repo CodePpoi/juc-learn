@@ -3,6 +3,11 @@ import java.util.concurrent.*;
 public class CustomThreadPool {
 
     public static void main(String[] args) {
+
+        //最大线程到底如何定义
+        //CPU密集型: 几核，最大线程数就是几 Runtime.getRuntime().availableProcessors()获取当前CPU核数
+        //IO密集型: 要大于 你程序中十分耗IO的线程数
+        //程序 15个大型任务， IO十分占用资源
         ExecutorService threadPool = new ThreadPoolExecutor(
                 2,
                 5,
